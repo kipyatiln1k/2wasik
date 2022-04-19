@@ -1,14 +1,11 @@
 from aiohttp.web import Application
 
-from routes import setup_routes
-from auth import app as auth_app
+from .routes import setup_routes
 
 
 def init_func():
     app = Application()
     setup_routes(app)
-    
-    app.add_subapp('/auth/', auth_app)
 
     return app
 
